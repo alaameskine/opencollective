@@ -8,7 +8,7 @@ pipeline {
 
     stages{
         //Running a dependency check to detect vulnerabilities 
-        /* stage('Dependency Check'){
+         stage('Dependency Check'){
             steps {
             sh 'npm audit --audit-level=critical'
             }
@@ -17,9 +17,9 @@ pipeline {
         //Running a code quality analysis to detect issues
         stage('SonarQube Analysis') {
             steps {
-                /*withSonarQubeEnv('sonarqube') {            
+            /*    withSonarQubeEnv('sonarqube') {            
                     sh 'npm run sonar'
-            } 
+            } */
             echo 'Check localhost:9000 for analysis details' 
         }
     }
@@ -41,17 +41,7 @@ pipeline {
             steps {
                 echo 'Running deploy_opencollective pipeline to do the deployment, it will start right after this build'
             }
-    } */
-    stage('Deploy to Dockerhub') {
-        steps {
-            script {
-            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_v3') {
-                def customImage = docker.build("alaameskine/opencollective") 
-                
-                customImage.push()
-                }
-            }
-            }
-        }
+    } 
+    
     }
 }
