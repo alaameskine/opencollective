@@ -43,7 +43,7 @@ pipeline {
             }
     } */
     stage('Deploy to Dockerhub') {
-        step {
+        steps {
             docker.withRegistry('registry.hub.docker.com', 'dockerhub') {
                 def customImage = docker.build("alaameskine/opencollective") 
                 
