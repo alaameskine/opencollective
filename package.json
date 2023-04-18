@@ -150,7 +150,7 @@
     "prettier:write": "npm run prettier -- --write",
     "publish-components": "npm run script scripts/publish-components/index.ts $1 -- $@",
     "script": "babel-node --extensions .js,.ts,.tsx -- $@",
-    "start": "node dist/server",
+    "start": "node server",
     "start:ci": "nyc --silent --exclude \".next/**\" node server",
     "start:e2e": "cross-env TZ=UTC NODE_ENV=production OC_ENV=e2e node server",
     "styleguide:build": "build-storybook -s public",
