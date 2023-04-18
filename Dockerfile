@@ -7,7 +7,6 @@ ENV CYPRESS_INSTALL_BINARY 0
 
 # Install dependencies first
 COPY package*.json ./
-RUN npm install --unsafe-perm
 
 COPY . .
 
@@ -31,10 +30,6 @@ ENV PDF_SERVICE_URL $PDF_SERVICE_URL
 
 ARG API_KEY=09u624Pc9F47zoGLlkg1TBSbOl2ydSAq
 ENV API_KEY $API_KEY
-
-RUN npm run build
-
-RUN npm prune --production
 
 EXPOSE $PORT
 
